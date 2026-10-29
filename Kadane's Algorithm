@@ -1,0 +1,17 @@
+class Solution {
+    int maxSubarraySum(int[] nums) {
+    int globalMax=nums[0];
+    int runingSum=nums[0];
+    for(int i=1;i<nums.length;i++){
+        if(runingSum+nums[i]<nums[i])
+           runingSum=nums[i];
+           else
+           runingSum+=nums[i];
+           if(runingSum<0)
+           runingSum=nums[i];
+           if(runingSum>globalMax)
+             globalMax=runingSum;
+             }
+        return globalMax;
+    }
+}
